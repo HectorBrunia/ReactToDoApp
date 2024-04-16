@@ -5,22 +5,33 @@ import PrivateLayout from "../layout/PrivateLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
+import { PublicLayout } from "../layout/PublicLayout";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <RootLayout />,
     children: [
       {
-        index: true,
-        element: <Login />,
+        path: "",
+        element: <PublicLayout />,
+        children: [
+          {
+            index: true,
+            element: <Login />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+        ],
       },
       {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "dashboard",
+        path: "Home",
         element: <PrivateLayout />,
         children: [
           {

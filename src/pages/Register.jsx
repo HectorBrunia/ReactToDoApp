@@ -13,7 +13,7 @@ const Register = () => {
   const { user } = useUserContext();
 
   // alternativa con hook
-  useRedirectActiveUser(user, "/dashboard");
+  useRedirectActiveUser(user, "/home");
 
   const onSubmit = async (
     { email, password },
