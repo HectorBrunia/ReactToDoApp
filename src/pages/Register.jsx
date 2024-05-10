@@ -37,6 +37,7 @@ const Register = () => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().trim().min(6).required(),
+    user: Yup.string().trim().min(5).max(15),
   });
 
   return (
@@ -94,6 +95,21 @@ const Register = () => {
               helperText={
                 errors.password && touched.password && errors.password
               }
+            />
+
+            <TextField
+              type="text"
+              placeholder="Ingrese nomre de usuario"
+              value={values.user}
+              onChange={handleChange}
+              name="user"
+              onBlur={handleBlur}
+              id="user"
+              label="Ingrese nombre de usuario"
+              fullWidth
+              sx={{ mb: 3 }}
+              error={errors.user && touched.user}
+              helperText={errors.user && touched.user && errors.user}
             />
 
             <LoadingButton
