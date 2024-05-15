@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import { PublicLayout } from "../layout/PublicLayout";
+import User from "../pages/User";
 
 export const router = createBrowserRouter([
   {
@@ -31,12 +32,16 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: "Home",
+        path: "home",
         element: <PrivateLayout />,
         children: [
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "user",
+            element: <User />,
           },
         ],
       },

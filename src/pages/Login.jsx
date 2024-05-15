@@ -25,7 +25,7 @@ const Login = () => {
   ) => {
     try {
       const credentialUser = await login({ email, password });
-      console.log(credentialUser);
+      //console.log(credentialUser);
       resetForm();
     } catch (error) {
       console.log(error);

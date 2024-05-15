@@ -1,4 +1,3 @@
-import { logOut } from "../config/firebase";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { useEffect, useState } from "react";
 
@@ -6,7 +5,6 @@ import TodoCreate from "../components/TodoCreate";
 import Header from "../components/Header";
 import TodoList from "../components/TodoList";
 import TodoComputed from "../components/TodoComputer";
-import PrivateNavbar from "../components/PrivateNavbar";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = [...list];
@@ -28,9 +26,6 @@ const initialTodos = JSON.parse(localStorage.getItem("toDo")) || [
 ];
 
 const Home = () => {
-  const handleLogout = async () => {
-    await logOut();
-  };
   const [todos, setTodo] = useState(initialTodos);
 
   useEffect(() => {
@@ -90,7 +85,6 @@ const Home = () => {
   };
   return (
     <>
-      <PrivateNavbar handleLogout={handleLogout} />
       <div
         className="font-body dark:bg-VeryDarkBlue bg-VeryLightGrayishBlue  bg-
                  min-h-screen bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat text-lg
