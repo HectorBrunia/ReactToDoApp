@@ -4,6 +4,8 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
+  updateEmail,
+  updatePassword,
   updateProfile,
 } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -34,6 +36,27 @@ export const updateUser = (userName, userPhoto) =>
     displayName: userName,
     photoURL: userPhoto,
   });
+
+export const updateEmailuser = (email) =>
+  updateEmail(auth.currentUser, email)
+    .then(() => {
+      console.log(succes);
+    })
+    .catch((error) => {
+      console.log(error);
+      // An error occurred
+      // ...
+    });
+
+export const updatePasswordUser = (newPassword) =>
+  updatePassword(auth.currentUser, newPassword)
+    .then(() => {
+      console.log("succes");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 export const updateUserImg = (file, user) => {
   console.log(file);
   const storageRef = ref(storage, "userImage/" + user.uid + ".jpg");
